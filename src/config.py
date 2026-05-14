@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     host: str = "0.0.0.0"
     port: int = 8000
     log_level: str = "INFO"
+    request_timeout: int = 60
 
     # vLLM
     vllm_url: str = "http://localhost:8001"
