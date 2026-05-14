@@ -1,0 +1,31 @@
+fastapi==0.115.*
+uvicorn[standard]==0.34.*
+langchain==0.3.*
+langchain-community==0.3.*
+langchain-huggingface==0.1.*
+langgraph==0.2.*
+chromadb==0.5.*
+langchain-core<1.0.0
+sentence-transformers==3.*
+beautifulsoup4==4.*
+google-genai
+google-generativeai  # required by langchain-google-genai internals
+langchain-google-genai==2.*
+transformers==4.46.*
+peft==0.13.*
+trl==0.12.*
+bitsandbytes==0.44.*
+mlflow==2.18.*
+ragas==0.2.*
+prometheus-client==0.21.*
+redis==5.*
+httpx==0.27.*
+pydantic==2.*
+pydantic-settings==2.*
+pytest==8.*
+pytest-asyncio==0.24.*
+ruff==0.8.*
+scikit-learn==1.5.*
+datasets==3.*
+accelerate==1.*
+# vllm==0.6.*  # uncomment when serving fine-tuned model (Linux/CUDA only)

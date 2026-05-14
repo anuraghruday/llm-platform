@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to registry
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ vars.REGISTRY }} -u ${{ secrets.REGISTRY_USER }} --password-stdin
+
+      - name: Build and push API image
+        run: |
+          docker build -f Dockerfile.api -t ${{ vars.REGISTRY }}/llm-platform-api:${{ github.sha }} .
+          docker push ${{ vars.REGISTRY }}/llm-platform-api:${{ github.sha }}
+
+      - name: Rolling update API deployment
+        run: |
+          kubectl set image deployment/api \
+            api=${{ vars.REGISTRY }}/llm-platform-api:${{ github.sha }} \
+            --record
