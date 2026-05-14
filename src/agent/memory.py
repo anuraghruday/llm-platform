@@ -7,7 +7,7 @@ from langchain_core.messages import BaseMessage
 
 _store: Dict[str, List[BaseMessage]] = defaultdict(list)
 
-MAX_HISTORY = 20
+MAX_HISTORY = 30
 
 
 def get_history(session_id: str) -> List[BaseMessage]:
