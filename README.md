@@ -57,7 +57,7 @@ The fine-tuning pipeline runs separately on a cloud GPU. Training data is genera
 
 ## Getting started
 
-Python 3.11 required. Everything runs on CPU for development — no GPU needed locally.
+Python 3.11 required. The API runs on CPU for development — no GPU needed locally. Fine-tuning needs a CUDA GPU (Colab notebook included).
 
 ```bash
 conda create -n llm-platform python=3.11
